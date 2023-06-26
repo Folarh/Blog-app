@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+  align-items: center;
+  background-color: #432344;
+  cursor: pointer;
+}
+nav .logo {
+  color: #ff2525;
+  font-style: italic;
+}
+
+nav .navigation {
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
+  color: #e7eefb;
+}
+
+nav .navigation li:hover {
+  color: crimson;
+}
+
+nav .user-in {
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+  color: #ffc03d;
+}
+
+nav .user-in li:hover {
+  color: #e7eefb;
+}

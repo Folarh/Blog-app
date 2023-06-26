@@ -1,0 +1,30 @@
+.sidebar {
+  flex: 0.3;
+  margin: 20px;
+  padding-bottom: 30px;
+  background-color: #e7eefb;
+  border: 10px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-title {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  border-top: 1px solid #a7a4a4;
+  border-bottom: 1px solid #a7a4a4;
+  font-size: 12px;
+  color: #ff2525;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+}
