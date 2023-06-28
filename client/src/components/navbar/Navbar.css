@@ -6,6 +6,9 @@ nav {
   align-items: center;
   background-color: #432344;
   cursor: pointer;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 nav .logo {
   color: #ff2525;

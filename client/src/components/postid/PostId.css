@@ -1,0 +1,55 @@
+.postId {
+  flex: 0.7;
+}
+.wrapper {
+  padding: 20px;
+  padding-right: 0;
+}
+
+.postid-image {
+  width: 100%;
+  height: 300;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.postId-title {
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+}
+
+.edit-delete {
+  float: right;
+}
+
+.post-icon-edit {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #432344;
+}
+.post-icon-delete {
+  margin-left: 10px;
+  cursor: pointer;
+  color: crimson;
+}
+
+.post-info {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #432344;
+}
+
+.post-description {
+  color: #666;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.post-description::first-letter {
+  margin-left: 20px;
+  font-size: 30px;
+  font-weight: 800;
+}

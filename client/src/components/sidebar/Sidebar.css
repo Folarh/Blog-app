@@ -14,6 +14,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .sidebar-title {
@@ -27,4 +28,29 @@
   font-weight: 600;
   line-height: 20px;
   text-align: center;
+}
+
+.sidebar-item img {
+  margin-top: 15px;
+  border-radius: 50%;
+}
+
+.sidebar-item p {
+  padding: 30px;
+}
+.sidebar-list {
+  margin-bottom: 30px;
+}
+.sidebar-list-items {
+  display: inline-block;
+  width: 50%;
+  margin-top: 15px;
+  cursor: pointer;
+}
+.sidebar-socials {
+  margin-top: 15px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

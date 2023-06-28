@@ -6,10 +6,10 @@ export default function Navbar() {
     <nav>
       <h2 className="logo">Blog</h2>
       <ul className="navigation">
-        <li>HOME</li>
-        <li>ABOUT</li>
-        <li>CONTACT</li>
-        <li>WRITE</li>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+        <li>Create</li>
       </ul>
       <ul className="user-in">
         <li>LOGIN</li>
