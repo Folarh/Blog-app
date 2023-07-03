@@ -22,6 +22,11 @@ nav .navigation {
   color: #e7eefb;
 }
 
+nav .navigation li a {
+  color: #e7eefb;
+  text-decoration: none;
+}
+
 nav .navigation li:hover {
   color: crimson;
 }
@@ -30,7 +35,11 @@ nav .user-in {
   display: flex;
   width: 10%;
   justify-content: space-between;
+}
+
+nav .user-in li a {
   color: #ffc03d;
+  text-decoration: none;
 }
 
 nav .user-in li:hover {

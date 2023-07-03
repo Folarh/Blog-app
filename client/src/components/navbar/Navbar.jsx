@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -6,14 +6,22 @@ export default function Navbar() {
     <nav>
       <h2 className="logo">Blog</h2>
       <ul className="navigation">
-        <li>Home</li>
-        <li>About</li>
-        <li>Contact</li>
-        <li>Create</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        {/* <li>About</li>
+        <li>Contact</li> */}
+        <li>
+          <Link to="/create">Create</Link>
+        </li>
       </ul>
       <ul className="user-in">
-        <li>LOGIN</li>
-        <li>REGISTER</li>
+        <li>
+          <Link to="/signup">LOGIN</Link>
+        </li>
+        <li>
+          <Link to="/signup">REGISTER</Link>
+        </li>
       </ul>
     </nav>
   );
