@@ -1,19 +1,35 @@
-import { useState } from "react";
-
+import { useRef } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
+import { useFetch } from "../../hooks/useFetch";
+import axios from "axios";
 //style
 import "./Login.css";
 
 const Login = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const userRef = useRef();
+  const passwordRef = useRef();
+  const { postData, data, error } = useFetch("/api/auth/login", "POST");
+  const { user, dispatch, isFetching } = useAuthContext();
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    login(user.email, user.password);
-    console.log(user.email, user.password);
+    dispatch({ type: "LOGIN_START" });
+    try {
+      // const res = await axios.post("/api/auth/login", {
+      //   email: userRef.current.value,
+      //   password: passwordRef.current.value,
+      // });
+      postData({
+        email: userRef.current.value,
+        password: passwordRef.current.value,
+      });
+      dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+    } catch (err) {
+      dispatch({ type: "LOGIN_FAILURE" });
+    }
   };
+
+  console.log(user);
 
   return (
     <div className="login">
@@ -24,11 +40,9 @@ const Login = () => {
           <label htmlFor="email">Email address</label>
           <input
             type="email"
-            name="email"
             id="email"
             placeholder="johndoe@gamil.com"
-            onChange={(e) => setUser({ ...user, email: e.target.value })}
-            value={user.email}
+            ref={userRef}
             autoComplete="off"
           />
         </div>
@@ -37,16 +51,16 @@ const Login = () => {
           <label htmlFor="pass">Password</label>
           <input
             type="password"
-            name="password"
             id="pass"
             placeholder="********"
-            onChange={(e) => setUser({ ...user, password: e.target.value })}
-            value={user.password}
+            ref={passwordRef}
             autoComplete="off"
           />
         </div>
 
-        <button className="login_form_btn">Log in</button>
+        <button className="login_form_btn" type="submit">
+          Log in
+        </button>
       </form>
     </div>
   );

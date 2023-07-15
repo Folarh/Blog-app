@@ -1,18 +1,23 @@
-import React from "react";
+import { useParams, Link } from "react-router-dom";
 //styles
 import "./PostId.css";
-//image import
-import image from "../../assets/hero.png";
+
 //raect icons
 import { AiFillEdit, AiTwotoneDelete } from "react-icons/ai";
 
+import { useFetch } from "../../hooks/useFetch";
+
 export default function PostId() {
+  const { id } = useParams();
+  const { data: post, loading, error } = useFetch("/api/posts/" + id);
   return (
     <section className="postId">
+      {loading && <p>loading...</p>}
+      {error && <p>{error}</p>}
       <div className="wrapper">
-        <img src={image} className="postid-image" />
+        {post.image && <img src={post.photo} className="postid-image" />}
         <h1 className="postId-title">
-          Lorem ipsum dolor sit amet consectetur
+          {post.title}
           <div className="edit-delete">
             <AiFillEdit className="post-icon-edit" />
             <AiTwotoneDelete className="post-icon-delete" />
@@ -20,26 +25,16 @@ export default function PostId() {
         </h1>
         <div className="post-info">
           <span className="post-author">
-            Author: <b>Folarin</b>
+            Author:
+            <Link to={`/?user=${post.username}`}>
+              <b>{post.username}</b>
+            </Link>
           </span>
-          <span className="post-date">1 hour ago</span>
+          <span className="post-date">
+            {new Date(post.createdAt).toDateString()}
+          </span>
         </div>
-        <p className="post-description">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          perferendis explicabo odio, architecto eos est sint incidunt? Expedita
-          ea eveniet atque aut voluptate cupiditate assumenda aperiam temporibus
-          sunt, voluptas iusto. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Perspiciatis perferendis explicabo odio, architecto
-          eos est sint incidunt? Expedita ea eveniet atque aut voluptate
-          cupiditate assumenda aperiam temporibus sunt, voluptas iusto. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          perferendis explicabo odio, architecto eos est sint incidunt? Expedita
-          ea eveniet atque aut voluptate cupiditate assumenda aperiam temporibus
-          sunt, voluptas iusto. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Perspiciatis perferendis explicabo odio, architecto
-          eos est sint incidunt? Expedita ea eveniet atque aut voluptate
-          cupiditate assumenda aperiam temporibus sunt, voluptas iusto.
-        </p>
+        <p className="post-description">{post.desc}</p>
       </div>
     </section>
   );

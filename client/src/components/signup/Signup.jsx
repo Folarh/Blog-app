@@ -3,21 +3,28 @@ import { useState } from "react";
 //react icon
 import { FcGoogle } from "react-icons/fc";
 import { FaLinkedin } from "react-icons/fa";
+import axios from "axios";
 
 //style
 import "./Signup.css";
 
 const Signup = () => {
+  const [error, setError] = useState(false);
   const [user, setUser] = useState({
     email: "",
     password: "",
     username: "",
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    signup(user.email, user.password);
-    // console.log(user.email, user.password);
+    try {
+      setError(false);
+      const res = await axios.post("/api/auth/register", user);
+      console.log(res);
+    } catch (err) {
+      setError(true);
+    }
   };
 
   return (
@@ -76,6 +83,11 @@ const Signup = () => {
           </button>
         </div>
       </form>
+      {error && (
+        <span style={{ color: "crimson", marginTop: "10px" }}>
+          Something went wrong.
+        </span>
+      )}
     </div>
   );
 };

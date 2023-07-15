@@ -1,6 +1,7 @@
 .singlepost {
   width: 385px;
   margin: 0px 25px 40px 25px;
+  border: 1px solid grey;
 }
 
 .singlepost .post-image {
